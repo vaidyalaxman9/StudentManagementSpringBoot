@@ -58,4 +58,21 @@ public class StudentController {
 	public String updateStudentPatch(@RequestBody Student student) {
 		return studentBo.updateStudentPatch(student);
 	}
+	
+	/******** APIs for advanced features ***********/
+
+	@GetMapping(value = "/getStudentNativeQuery/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Student getStudentNativeQuery(@PathVariable("id") Integer id) {
+		return studentBo.getStudentNativeQuery(id);
+	}
+
+	@GetMapping(value = "/getStudentJpql/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Student getStudentJpql(@PathVariable("id") Integer id) {
+		return studentBo.getStudentJpql(id);
+	}
+
+	@GetMapping(value = "/studentCount", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String studentCount() {
+		return studentBo.studentCount();
+	}
 }

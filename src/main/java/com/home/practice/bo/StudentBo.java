@@ -62,4 +62,17 @@ public class StudentBo {
 		studentRepository.save(dbStudent);
 		return "{\"status\": true, message: \"record updated successfully\"}";
 	}
+	
+	public Student getStudentNativeQuery(Integer id) {
+		return studentRepository.getStudentNativeQuery(id);
+	}
+
+	public Student getStudentJpql(Integer id) {
+		return studentRepository.getStudentJpql(id);
+	}
+
+	public String studentCount() {
+		Integer count = studentRepository.studentCount();
+		return "{\"studentCount\": "+count+"}";
+	}
 }
