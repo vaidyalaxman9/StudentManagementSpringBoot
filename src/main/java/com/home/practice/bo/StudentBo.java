@@ -2,7 +2,8 @@ package com.home.practice.bo;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,8 @@ import com.home.practice.repository.StudentRepository;
 
 @Service
 public class StudentBo {
+	
+	private Logger logger = LoggerFactory.getLogger(StudentBo.class);	
 
 	@Autowired
 	StudentRepository studentRepository;
@@ -21,22 +24,42 @@ public class StudentBo {
 	}
 
 	public Student getStudent(Integer id) {
-		return studentRepository.findById(id).get();
+		Student student = new Student();
+		try {
+			student = studentRepository.findById(id).get();
+		} catch (Exception e) {
+			logger.error("Error in getStudent for " + id + " , description: " + e.getMessage());
+		}
+		return student;
 	}
+	
 
-	@Transactional
-	public Student saveStudent(Student student) {
-		studentRepository.save(student);
+	public Student saveStudent(Student  student) {
+				try {
+			student= studentRepository.save(student);
+		} catch (Exception e) {
+			logger.error("Error in saveStudent for " + student + " , description: " + e.getMessage());
+		}
+		
 		return student;
 	}
 	
 	public Student updateStudent(Student student) {
-		studentRepository.save(student);
+		try {
+		  studentRepository.save(student);
+		} catch (Exception e) {
+			logger.error("Error in updateStudent for " + student + " , description: " + e.getMessage());
+		}
 		return student;
 	}
 	
 	public String deleteStudent(Integer id) {
+		try {
 		studentRepository.deleteById(id);
+		} catch (Exception e) {
+			logger.error("Error in deleteStudent for " + id + " , description: " + e.getMessage());
+			return "{\"status\": true, message: \"this student id is not available\"}";
+		}
 		return "{\"status\": true, message: \"record deleted successfully\"}";
 	}
 	
