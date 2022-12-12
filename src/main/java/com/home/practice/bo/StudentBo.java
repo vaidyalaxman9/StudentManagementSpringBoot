@@ -1,16 +1,16 @@
 package com.home.practice.bo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.home.practice.entity.Student;
+import com.home.practice.exception.StudentManagementNotFoundException;
 import com.home.practice.repository.StudentRepository;
-
 @Service
 public class StudentBo {
 	
@@ -22,17 +22,28 @@ public class StudentBo {
 	public List<Student> getAllStudents() {
 		return studentRepository.findAll();
 	}
-
-	public Student getStudent(Integer id) {
-		Student student = new Student();
-		try {
-			student = studentRepository.findById(id).get();
-		} catch (Exception e) {
-			logger.error("Error in getStudent for " + id + " , description: " + e.getMessage());
-		}
-		return student;
-	}
 	
+	public Student getStudent(Integer id) throws StudentManagementNotFoundException {
+
+	//public Student getStudent(Integer id) {
+		//Student student = new Student();
+		//try {
+		//	student = studentRepository.findById(id).get();
+		//} catch (Exception e) {
+		//	logger.error("Error in getStudent for " + id + " , description: " + e.getMessage());
+		//}
+	//	return student;
+	//}
+	
+	Optional<Student> studentOptional = studentRepository.findById(id);
+
+	if (studentOptional.isPresent()) {
+		return studentOptional.get();
+	} else {
+		throw new StudentManagementNotFoundException("Student doesn't exists with id " + id);
+	}
+}
+
 
 	public Student saveStudent(Student  student) {
 				try {

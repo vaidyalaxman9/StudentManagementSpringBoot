@@ -2,6 +2,10 @@ package com.home.practice.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,10 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.home.practice.bo.StudentBo;
 import com.home.practice.entity.Student;
+import com.home.practice.exception.StudentManagementNotFoundException;
 
 @RestController
 @RequestMapping("/student")
 public class StudentController {
+	
+	private Logger logger = LoggerFactory.getLogger(StudentController.class);
 	
 	@Autowired
 	StudentBo studentBo;
@@ -35,12 +42,12 @@ public class StudentController {
 	}
 	
 	@GetMapping(value="/student/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Student getStudent(@PathVariable("id") Integer id){
+	public Student getStudent(@PathVariable("id") Integer id) throws StudentManagementNotFoundException{
 		return studentBo.getStudent(id);
 	}
 	
 	@PostMapping(value="/student", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Student saveStudent(@RequestBody Student student){
+	public Student saveStudent(@Valid @RequestBody Student student){
 		return studentBo.saveStudent(student);
 	}
 	

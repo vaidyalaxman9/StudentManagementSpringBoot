@@ -1,0 +1,33 @@
+2022-12-12 21:11:49,506 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StudentManagementSpringBootApplication using Java 1.8.0_202 on DESKTOP-I99I5IS with PID 6972 (C:\Users\Laxminarayan\Documents\StudentManagementSpringBoot\target\classes started by Laxminarayan in C:\Users\Laxminarayan\Documents\StudentManagementSpringBoot)
+2022-12-12 21:11:49,508 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-12 21:11:49,508 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-12-12 21:11:50,481 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-12 21:11:50,692 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StudentManagementSpringBootApplication in 1.327 seconds (JVM running for 1268.267)
+2022-12-12 21:12:42,067 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StudentManagementSpringBootApplication using Java 1.8.0_202 on DESKTOP-I99I5IS with PID 9180 (C:\Users\Laxminarayan\Documents\StudentManagementSpringBoot\target\classes started by Laxminarayan in C:\Users\Laxminarayan\Documents\StudentManagementSpringBoot)
+2022-12-12 21:12:42,069 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-12 21:12:42,071 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-12-12 21:12:49,151 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-12 21:12:49,667 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] Unable to start LiveReload server
+2022-12-12 21:12:49,704 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-12-12 21:12:49,812 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-12-12 21:38:58,441 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StudentManagementSpringBootApplication using Java 1.8.0_202 on DESKTOP-I99I5IS with PID 9624 (C:\Users\Laxminarayan\Documents\StudentManagementSpringBoot\target\classes started by Laxminarayan in C:\Users\Laxminarayan\Documents\StudentManagementSpringBoot)
+2022-12-12 21:38:58,444 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-12 21:38:58,445 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-12-12 21:39:05,372 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-12 21:39:06,122 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StudentManagementSpringBootApplication in 8.465 seconds (JVM running for 9.996)
+2022-12-12 21:41:07,437 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8080-exec-4] SQL Error: 1406, SQLState: 22001
+2022-12-12 21:41:07,440 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8080-exec-4] Data truncation: Data too long for column 'mobile' at row 1
+2022-12-12 21:41:07,454 ERROR com.home.practice.bo.StudentBo [http-nio-8080-exec-4] Error in saveStudent for com.home.practice.entity.Student@71f42fc9 , description: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
